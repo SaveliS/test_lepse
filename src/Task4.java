@@ -28,6 +28,7 @@ public class Task4 {
 
                 int max = Math.max(a, b);
                 int min = Math.min(a, b);
+
                 String key = max + "x" + min;
                 sides.put(key, sides.getOrDefault(key,0) + 1);
             }
@@ -35,6 +36,25 @@ public class Task4 {
             if(sides.values().stream().anyMatch(value -> value % 2 != 0)){
                 System.out.println("Невозможно!");
                 return;
+            }
+            
+            String pastKey = "";
+            for (String key : sides.keySet()) {
+                boolean isComplianceSide = false;
+                if(pastKey == ""){
+                    pastKey = key;
+                }
+
+                for (String value : key.split("x")) {
+                    if(pastKey.contains(value)){
+                        isComplianceSide = true;
+                    }
+                }
+
+                if(isComplianceSide == false){
+                    System.out.println("Невозможно!");
+                    return;
+                }
             }
 
             System.out.println("Возможно");
