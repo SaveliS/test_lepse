@@ -9,6 +9,7 @@ public class App {
         new Task3().start("some_variable");
         new Task3().start("InvalidMethod");
         new Task3().start("bad_VarName");
+        new Task3().start("bad_varName");
         new Task4(Path.of("test_file\\test2.txt")).start();
     }
 }

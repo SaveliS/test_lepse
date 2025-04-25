@@ -29,6 +29,10 @@ public class Task3 {
 
         for (int i = 1; i < words.length; i++) {
             char [] chars = words[i].toCharArray();
+            if(words[i].chars().mapToObj(symb -> (char)symb).anyMatch(symbol -> Character.isUpperCase(symbol))){
+                System.out.println("\"" + line + "\" -> \"" + "Error!" + "\"");
+                return;
+            }
             chars[0] = Character.toUpperCase(chars[0]);
             words[i] = String.valueOf(chars);
         }
